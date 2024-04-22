@@ -30,10 +30,6 @@ public class App {
         isIntro = true;
         isCorrect = false;
 
-        String[] wordleAnswers = WordleReader.readWordleStrings("wordle.txt");
-        String answerString = wordleAnswers[(int)(Math.random() * wordleAnswers.length)];
-        answer = new Word(answerString);
-
         String[] validAnswers = WordleReader.readWordleStrings("valid_wordle.txt");
         answers = new ArrayList<String>();
 
@@ -46,6 +42,11 @@ public class App {
     public Word getAnswer()
     {
         return answer;
+    }
+
+    public void setAnswer(Word answer)
+    {
+        this.answer = answer;
     }
 
     public ArrayList<String> getAnswers()

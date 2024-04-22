@@ -6,6 +6,26 @@ import teak.*;
 public class GameStartEvent implements EventListener<Graphics> {
     public void onEvent(Graphics g)
     {
+        App app = App.getInstance();
+        AppGUI gui = AppGUI.getInstance();
+
+        String[] wordleAnswers = WordleReader.readWordleStrings("wordle.txt");
+        String answerString = wordleAnswers[(int)(Math.random() * wordleAnswers.length)];
+        Word answer = new Word(answerString);
+
+        app.setGuess(0);
+        app.setPosition(0);
+        app.setGameOver(false);
+        app.setCorrect(false);
+        app.setIntro(true);
+        app.setAnswer(answer);
+
+        for(int i = 0; i < 5; i++)
+        {
+            for(int j = 0; j < 6; j++)
+                gui.updateLetter(i, j, Position.INITIAL, ' ');
+        }
+
         g.setFont(new Font("Arial", Font.BOLD, 26));
         g.setColor(AppGUI.TEXT_COLOR);
         g.drawString(AppGUI.TITLE, 340, 40);

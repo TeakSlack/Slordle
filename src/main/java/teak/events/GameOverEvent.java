@@ -21,5 +21,7 @@ public class GameOverEvent implements EventListener<Graphics> {
             g.setColor(AppGUI.TEXT_COLOR);
             g.drawString("WRONG!! The word was: " + App.getInstance().getAnswer(), 230, 375);
         }
+
+        g.drawString("Play again? (y/n)", 300, 400);
     }
 }

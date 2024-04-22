@@ -1,6 +1,7 @@
 package teak.events;
 
 import java.awt.event.KeyEvent;
+import java.awt.Graphics;
 import teak.*;
 
 public class KeystrokeEvent implements EventListener<KeyEvent> {
@@ -20,7 +21,26 @@ public class KeystrokeEvent implements EventListener<KeyEvent> {
         if(app.getIntro())
         {
             App.getInstance().setIntro(false);
+            word = new char[5];
             AppGUI.getInstance().repaint();
+            return;
+        }
+
+        if(app.getGameOver() || app.getCorrect())
+        {
+            if(Character.toLowerCase(c.getKeyChar()) == 'y')
+            {
+                EventSource startSrc = new EventSource();
+                GameStartEvent startEvent = new GameStartEvent();
+                startSrc.addListener(startEvent);
+
+                TeakEvent<Graphics> event = new TeakEvent<Graphics>(AppGUI.getInstance().getGraphics());
+                startSrc.fireEvent(event);
+            }
+            if(Character.toLowerCase(c.getKeyChar()) == 'n')
+            {
+                System.exit(0);
+            }
         }
 
         if(c.getKeyCode() == KeyEvent.VK_BACK_SPACE && position != 0) 
