@@ -1,22 +1,15 @@
 #ifndef LOG_H
 #define LOG_H
 
-#include <spdlog/spdlog.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <vector>
-#include <mutex>
-
 class Log
 {
 public:
-	// Meyer's Singleton -- one of two total in codebase
+	// Meyer's Singleton -- the singlular singleton in this codebase
 	// This is justified being a singleton for a few main reasons
 	// 1. Loggers are inherently global -- all systems should write to the same output
 	// 2. This avoids tedious prop-drilling the logger into every constructor
 	// 3. The lifetime is naturally the entire program, the logger is one of the last objects destroyed
+	// 4. Avoid the static initialization order vex
 	static Log& Get()
 	{
 		static Log s_Instance;

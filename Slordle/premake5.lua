@@ -5,8 +5,11 @@ project "Slordle"
         targetdir ( "%{wks.location}/bin/" .. outputdir .. "/%{prj.name}" )
         objdir ( "%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}" )
 
-        files 
-        { 
+        pchheader "pch.h"
+        pchsource "src/pch.cpp"
+
+        files
+        {
             "src/**.h",
             "src/**.cpp",
         }
@@ -23,10 +26,13 @@ project "Slordle"
         }
 
         filter "system:windows"
-            defines
-            {
-                "_CRT_SECURE_NO_WARNINGS"
-            }
+            links { "raylib", "winmm" }
+            linkoptions { "/FORCE:MULTIPLE", "/ignore:4006" }
+            defines { "_CRT_SECURE_NO_WARNINGS" }
+
+
+        filter "system:linux"
+            links { "raylib" }  -- Vulkan library for Linux (`libvulkan.so`)
 
         filter "configurations:Debug"
             defines { "DEBUG", "_DEBUG" }
