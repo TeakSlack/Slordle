@@ -1,0 +1,13 @@
+scripts/__pycache__
+vendor/premake
+lib/
+**.vcxproj
+**.slnx
+**.sln
+**.vcxproj.user
+**.vcxproj.filters
+.vs
+.vscode
+bin
+bin-int
+**/Makefile
