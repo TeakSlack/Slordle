@@ -20,5 +20,6 @@
 #include <mutex>
 #include <iostream>
 #include <algorithm>
+#include <functional>
 
 #endif
