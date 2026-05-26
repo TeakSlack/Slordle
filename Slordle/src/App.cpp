@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Pch.h"
 #include "App.h"
 
 void App::Run()

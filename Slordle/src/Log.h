@@ -9,7 +9,7 @@ public:
 	// 1. Loggers are inherently global -- all systems should write to the same output
 	// 2. This avoids tedious prop-drilling the logger into every constructor
 	// 3. The lifetime is naturally the entire program, the logger is one of the last objects destroyed
-	// 4. Avoid the static initialization order vex
+	// 4. Avoid the static initialization order fiasco
 	static Log& Get()
 	{
 		static Log s_Instance;

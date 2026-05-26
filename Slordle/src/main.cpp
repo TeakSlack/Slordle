@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Pch.h"
 #include "App.h"
 
 int main(int argc, char** argv)
