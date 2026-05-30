@@ -5,8 +5,8 @@ project "Slordle"
         targetdir ( "%{wks.location}/bin/" .. outputdir .. "/%{prj.name}" )
         objdir ( "%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}" )
 
-        pchheader "pch.h"
-        pchsource "src/pch.cpp"
+        pchheader "Pch.h"
+        pchsource "src/Pch.cpp"
 
         files
         {

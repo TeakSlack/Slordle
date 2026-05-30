@@ -17,9 +17,12 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <array>
 #include <mutex>
 #include <iostream>
 #include <algorithm>
 #include <functional>
+#include <variant>
+#include <typeindex>
 
 #endif

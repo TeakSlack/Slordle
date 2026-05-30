@@ -2,6 +2,8 @@
 #define APP_H
 
 #include "Window.h"
+#include "Input.h"
+#include "Event.h"
 
 class App
 {
@@ -15,6 +17,8 @@ private:
 	void Shutdown();
 
 	Window m_Window{ 1280, 720, "Slordle" };
+	EventBus m_Bus;
+	Input m_Input{ m_Bus };
 };
 
 #endif // APP_H

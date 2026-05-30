@@ -19,7 +19,7 @@ public:
 	Log(const Log&) = delete;
 	Log& operator=(const Log&) = delete;
 
-	std::shared_ptr<spdlog::logger> GetLogger(const std::string & name = "core")
+	std::shared_ptr<spdlog::logger> GetLogger(const std::string& name = "core")
 	{
 		std::lock_guard<std::mutex> lock(m_Mutex);
 
