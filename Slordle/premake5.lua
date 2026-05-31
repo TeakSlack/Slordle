@@ -14,8 +14,9 @@ project "Slordle"
             "src/**.cpp",
         }
 
-        includedirs 
+        includedirs
         {
+            "src",
             "%{IncludeDir.spdlog}",
             "%{IncludeDir.raylib}"
         }

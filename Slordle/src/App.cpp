@@ -8,9 +8,16 @@ void App::Run()
 
 	while (!m_Window.ShouldClose())
 	{
+		float deltaTime = GetFrameTime();
 		m_Input.Poll();
+
+		m_SceneManager.Update(deltaTime);
+		BeginDrawing();
+		m_SceneManager.Render();
+		EndDrawing();
 	}
 
+	LOG_INFO("Closing app...");
 	Shutdown();
 }
 
