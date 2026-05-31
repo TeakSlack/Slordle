@@ -22,6 +22,8 @@ void SceneManager::Update(float deltaTime)
 
 void SceneManager::Render()
 {
+	BeginDrawing();
 	for (auto& scene : m_Scenes)
 		scene->Render();
+	EndDrawing();
 }

@@ -12,7 +12,7 @@ public:
 private:
 	void PollKeyboard();
 
-	EventBus m_Bus;
+	EventBus& m_Bus;
 };
 
 #endif // INPUT_H

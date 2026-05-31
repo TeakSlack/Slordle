@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Event.h"
 #include "Scene/SceneManager.h"
+#include "Scene/IScene.h"
 
 class App
 {
@@ -21,6 +22,8 @@ private:
 	EventBus m_Bus;
 	Input m_Input{ m_Bus };
 	SceneManager m_SceneManager;
+
+	std::unique_ptr<IScene> m_MenuScene;
 };
 
 #endif // APP_H
